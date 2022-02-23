@@ -6,3 +6,14 @@ export const currencyFormatting = function (currency: number) {
   const money = dollarUSLocale.format(currency);
   return money;
 };
+
+
+export const getVoteAverage = function (average: number) {
+  if (average <= 3) {
+    return "red";
+  } else if (average <= 6) {
+    return "orange";
+  } else {
+    return "green";
+  }
+};

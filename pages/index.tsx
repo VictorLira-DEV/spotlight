@@ -1,14 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import MoviesWrapper from "../src/components/MoviesWrapper";
 import Head from "next/head";
 import MovieItem from "../src/components/MovieItem";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { FEATURED_API, IMAGE_API } from "../src/services/api/movieApi";
-import { SearchPageContext } from '../src/context/searchMovieinput'
-import {
-  IMovieDetails,
-} from "../src/interface/interfaces";
+import { getVoteAverage } from "../src/helper/functions";
+import { IMovieDetails } from "../src/interface/interfaces";
 
 interface IHome {
   movies: IMovieDetails[];
@@ -16,16 +14,6 @@ interface IHome {
 
 const Home = (props: IHome) => {
   const router = useRouter();
-  const {searchMovieValue} = useContext(SearchPageContext)
-  const getVoteAverage = function (average: number) {
-    if (average <= 3) {
-      return "red";
-    } else if (average <= 6) {
-      return "orange";
-    } else {
-      return "green";
-    }
-  };
 
   function showMovieDetail(e: any) {
     const route = e.currentTarget
@@ -70,7 +58,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      movies: data.results
+      movies: data.results,
     },
     revalidate: 3600,
   };

@@ -27,7 +27,14 @@ function MovieItem(props: IMovieItem) {
   }, []);
 
   return (
-    <StyledMovieItem data-identifier={props.id} className="get-id">
+    <StyledMovieItem
+      data-identifier={props.id}
+      className="get-id"
+      data-aos="zoom-in"
+      data-aos-offset="100"
+      data-aos-easing="ease-in-sine"
+      data-aos-duration="800"
+    >
       <StyledMovieImage src={props.image} alt="something" />
       <StyledMovieInfo>
         <h3>{props.title}</h3>

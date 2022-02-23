@@ -12,7 +12,6 @@ import {
   StyledDetailInformations,
   StyledMovieDetailsContainer,
   StyledDetailPoster,
-  StyledMovieBackground,
   StyledMovieBanner,
   StyledMovieOverview,
   StyledPopUp,
@@ -93,7 +92,7 @@ function MovieOverview(props: IProps) {
         </StyledPopUp>
       )}
       <StyledMovieBanner>
-        <StyledMovieBackground src={IMAGE_API + movieDetail!.backdrop_path} />
+        <img className="backdrop_image" src={movieDetail!.backdrop_path ? IMAGE_API + movieDetail!.backdrop_path : '/movie-default.jpg'} />
         <StyledMovieDetailsContainer
           data-aos="zoom-out"
           data-aos-offset="100"
@@ -115,7 +114,7 @@ function MovieOverview(props: IProps) {
                 onClick={() => displayMovieTrailerHandler()}
               >
                 <BiPlay />
-                <h1> Watch Trailer</h1>
+                <h1> Preview </h1>
               </div>
               <h1>Overview</h1>
               <div>

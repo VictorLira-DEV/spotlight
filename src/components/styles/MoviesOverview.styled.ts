@@ -3,19 +3,19 @@ import styled from "styled-components";
 export const StyledMovieBanner = styled.div`
   overflow: hidden;
   position: relative;
+  & > .backdrop_image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
 `;
 
-export const StyledMovieBackground = styled.img`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-`;
 export const StyledMovieDetailsContainer = styled.div`
   min-width: 100vw;
   min-height: calc(100vh - 82px);
@@ -66,13 +66,15 @@ export const StyledMovieOverview = styled.div`
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    cursor: pointer;
     svg {
-      font-size: 40px;
+      font-size: 45px;
       border: none;
       margin-right: 10px;
     }
     h1 {
       color: white;
+      font-size: 1.5rem;
     }
   }
 

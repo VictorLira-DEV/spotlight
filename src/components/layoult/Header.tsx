@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 
 function Header() {
   const { searchMovieFunction, searchMovieValue } = useContext(SearchPageContext);
-  const [searchValue, setSearchValue] = useState("flash");
+  const [searchValue, setSearchValue] = useState("");
   const router = useRouter();
 
   const searchMovie = function (e: any) {
@@ -21,6 +21,7 @@ function Header() {
     const current = localStorage.getItem('search')
     router.replace("/search");
     searchMovieFunction(current)
+    setSearchValue("")
   };
 
   const goBackToHomePage = function(){
