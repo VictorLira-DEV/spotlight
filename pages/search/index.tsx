@@ -63,7 +63,7 @@ function Search() {
               average={getVoteAverage(movie.vote_average)}
               title={movie.title}
               vote={movie.vote_average}
-              image={IMAGE_API + movie.poster_path}
+              image={movie.poster_path && IMAGE_API + movie.poster_path}
             />
           );
         })}

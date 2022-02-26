@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledMovieBanner = styled.div`
   overflow: hidden;
   position: relative;
-  & > .backdrop_image{
+  & > .backdrop_image {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -132,11 +132,52 @@ export const StyledMovieOverview = styled.div`
   }
 `;
 
-export const StyledDetailPoster = styled.img`
-  width: 350px;
-  height: 500px;
-  object-fit: cover;
+export const StyledDetailPoster = styled.div`
   align-self: flex-end;
+  position: relative;
+  transition: 0.3s;
+  cursor: pointer;
+  img {
+    width: 350px;
+    height: 500px;
+    object-fit: cover;
+  }
+
+  &:hover .overlay {
+    transition: 0.3s;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  .content {
+    color: white;
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      color: white;
+      font-size: 1.5rem;
+      border: none;
+      width: 40px;
+      margin-right: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
 `;
 
 export const StyledPopUp = styled.div`

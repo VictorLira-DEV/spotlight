@@ -27,7 +27,7 @@ function MovieItem(props: IMovieItem) {
       data-aos-easing="ease-in-sine"
       data-aos-duration="800"
     >
-      <StyledMovieImage src={props.image} alt="something" />
+      <StyledMovieImage src={props.image ? props.image : '/movie-default.jpg'} alt="something" />
       <StyledMovieInfo>
         <h3>{props.title}</h3>
         <span className={props.average}> {props.vote} </span>

@@ -8,6 +8,7 @@ import React, { useEffect, useState } from "react";
 import { RiCloseFill } from "react-icons/ri";
 import PopUp from "./ui/PopUp";
 import { BiPlay } from "react-icons/bi";
+import { CgArrowsExpandRight } from 'react-icons/cg'
 import {
   StyledDetailInformations,
   StyledMovieDetailsContainer,
@@ -44,6 +45,7 @@ function MovieOverview(props: IProps) {
   const { movieDetail } = props;
   const [displayPopUp, setDisplayPopUp] = useState(false);
   const [displayTrailerPopUp, setDisplayTrailerPopUp] = useState(false);
+  const [posterHoverEffect, setPostHoverEffect] = useState(false);
 
   useEffect(() => {
     Aos.init();
@@ -92,7 +94,14 @@ function MovieOverview(props: IProps) {
         </StyledPopUp>
       )}
       <StyledMovieBanner>
-        <img className="backdrop_image" src={movieDetail!.backdrop_path ? IMAGE_API + movieDetail!.backdrop_path : '/movie-default.jpg'} />
+        <img
+          className="backdrop_image"
+          src={
+            movieDetail!.backdrop_path
+              ? IMAGE_API + movieDetail!.backdrop_path
+              : "/background-default.jpg"
+          }
+        />
         <StyledMovieDetailsContainer
           data-aos="zoom-out"
           data-aos-offset="100"
@@ -100,9 +109,21 @@ function MovieOverview(props: IProps) {
           data-aos-duration="800"
         >
           <StyledDetailPoster
-            src={IMAGE_API + movieDetail!.poster_path}
-            onClick={() => displayPopUpHandler()}
-          />
+            onMouseLeave={() => setPostHoverEffect(false)}
+            onMouseEnter={() => setPostHoverEffect(true)}
+          >
+            <img
+              src={IMAGE_API + movieDetail!.poster_path}
+              
+            />
+            <div className="overlay" />
+            {posterHoverEffect && (
+              <div className="content" onClick={() => displayPopUpHandler()}  >
+                <CgArrowsExpandRight />
+                <p>Expand</p>
+              </div>
+            )}
+          </StyledDetailPoster>
           <h1>
             <AiOutlineArrowLeft onClick={() => props.backToRoute()} />
             {movieDetail!.title}
@@ -123,11 +144,12 @@ function MovieOverview(props: IProps) {
               <h1>Release Date</h1>
               <p> {movieDetail!.release_date} </p>
               <h1>Genrer</h1>
-              {movieDetail.genres && movieDetail.genres.map((genrer) => (
-                <p key={genrer.id} className="genrer" id={genrer.id}>
-                  {genrer.name}
-                </p>
-              ))}
+              {movieDetail.genres &&
+                movieDetail.genres.map((genrer) => (
+                  <p key={genrer.id} className="genrer" id={genrer.id}>
+                    {genrer.name}
+                  </p>
+                ))}
               <h1>Language</h1>
               <p>
                 {movieDetail!.original_language === "en"
@@ -136,18 +158,19 @@ function MovieOverview(props: IProps) {
               </p>
               <h1>Production Company</h1>
               <div className="productin__wrapper">
-                {movieDetail.production_companies && movieDetail.production_companies.map((logo) => (
-                  <img
-                    alt="something"
-                    key={logo.id}
-                    className="production"
-                    src={
-                      logo.logo_path
-                        ? IMAGE_API + logo.logo_path
-                        : "/production-default.jpg"
-                    }
-                  />
-                ))}
+                {movieDetail.production_companies &&
+                  movieDetail.production_companies.map((logo) => (
+                    <img
+                      alt="something"
+                      key={logo.id}
+                      className="production"
+                      src={
+                        logo.logo_path
+                          ? IMAGE_API + logo.logo_path
+                          : "/production-default.jpg"
+                      }
+                    />
+                  ))}
               </div>
             </StyledMovieOverview>
             <StyledMovieStatus>
