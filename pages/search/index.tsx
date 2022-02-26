@@ -6,15 +6,25 @@ import { SearchPageContext } from "../../src/context/searchMovieinput";
 import SearchPageProvider from "../../src/context/searchMovieinput";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import Axios from "axios";
 import { getVoteAverage } from "../../src/helper/functions";
-import useAxios from '../../src/hooks/useAxios'
+import useAxios from "../../src/hooks/useAxios";
+
+interface IsearchedMovie {
+  image: string;
+  title: string;
+  vote: number;
+  average: string;
+  vote_average: number;
+  poster_path: string;
+  id: string;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
 function Search() {
   const router = useRouter();
-  const [allData, setAllData] = useState([]);
+  const [allData, setAllData] = useState<IsearchedMovie[]>([]);
   const { searchMovieValue } = useContext(SearchPageContext);
-  const { sendRequest } = useAxios()
+  const { sendRequest } = useAxios();
 
   useEffect(() => {
     const current = localStorage.getItem("search");
@@ -22,13 +32,13 @@ function Search() {
       const data = response.data.results;
       setAllData(data);
     }
-    sendRequest({url: SEARCH_API + current}, getData)
+    sendRequest({ url: SEARCH_API + current }, getData);
   }, [searchMovieValue]);
 
-  function showMovieDetail(e: any) {
+  function showMovieDetail(e: React.MouseEvent<HTMLButtonElement>) {
     const route = e.currentTarget
-      .closest(".get-id")
-      ?.getAttribute("data-identifier");
+      .closest(".get-id")!
+      .getAttribute("data-identifier")!;
 
     localStorage.setItem("movie-id", route);
     router.replace("search/" + route);
@@ -44,7 +54,7 @@ function Search() {
             content="take a look at the most popular movies nowadays"
           />
         </Head>
-        {allData.map((movie: any) => {
+        {allData.map((movie: IsearchedMovie) => {
           return (
             <MovieItem
               onClick={(e) => showMovieDetail(e)}

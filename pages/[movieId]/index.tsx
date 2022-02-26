@@ -4,6 +4,7 @@ import { FEATURED_API } from "../../src/services/api/movieApi";
 import Head from "next/head";
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
+import { GetStaticProps, GetStaticPaths, GetStaticPropsContext } from "next";
 
 interface IMovieOriginalResponse {
   vote_average: string;
@@ -22,7 +23,7 @@ interface IMovieDetail {
   genres: { id: string; name: string }[];
   original_language: string;
   production_companies: { id: string; logo_path: string }[];
-  videos: any;
+  videos: { results: { key: string }[] };
   revenue: number;
   budget: number;
   status: string;
@@ -39,10 +40,6 @@ function MovieDetails(props: IProps) {
   const backToRoute = function () {
     router.replace("/");
   };
-
-  useEffect(() => {
-    console.log(movieDetail.id)
-  })
 
   return (
     <React.Fragment>
@@ -66,8 +63,10 @@ function MovieDetails(props: IProps) {
   );
 }
 
-export async function getStaticProps(context: any) {
-  const { movieId } = context.params;
+export const getStaticProps: GetStaticProps = async (
+  context: GetStaticPropsContext
+) => {
+  const { movieId } = context.params!;
 
   let response = await Axios({
     url: `https://api.themoviedb.org/3/movie/${movieId}?api_key=04c35731a5ee918f014970082a0088b1&append_to_response=videos`,
@@ -80,9 +79,9 @@ export async function getStaticProps(context: any) {
     },
     revalidate: 3600,
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   let response = await Axios({
     url: FEATURED_API,
     method: "GET",
@@ -94,6 +93,6 @@ export async function getStaticPaths() {
       params: { movieId: movie.id.toString() },
     })),
   };
-}
+};
 
 export default MovieDetails;

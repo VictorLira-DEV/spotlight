@@ -18,7 +18,7 @@ interface IMovieDetails {
   budget: number;
   revenue: number;
   status: string;
-  videos: any;
+  videos: { results: { key: string }[] };
 }
 
 function Search() {

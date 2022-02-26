@@ -1,24 +1,23 @@
 import { StyledHeader, StyledInput } from "../styles/Header.styled";
-import { useState } from "react";
-import Axios from "axios";
+import React, { useState } from "react";
 import { useContext } from "react";
 import { SearchPageContext } from "../../context/searchMovieinput";
 import { useRouter } from "next/router";
 
 function Header() {
-  const { searchMovieFunction, searchMovieValue } = useContext(SearchPageContext);
+  const { searchMovieFunction } = useContext(SearchPageContext);
   const [searchValue, setSearchValue] = useState("");
   const router = useRouter();
 
-  const searchMovie = function (e: any) {
+  const searchMovie = function (e: React.FormEvent<HTMLInputElement>) {
     e.preventDefault();
-    setSearchValue(e.target.value);
+    setSearchValue(e.currentTarget.value);
   };
 
-  const onFormSubmit = async function (e: any) {
+  const onFormSubmit = async function (e: React.FormEvent) {
     e.preventDefault();
     localStorage.setItem('search', searchValue)
-    const current = localStorage.getItem('search')
+    const current = localStorage.getItem('search')!
     router.replace("/search");
     searchMovieFunction(current)
     setSearchValue("")

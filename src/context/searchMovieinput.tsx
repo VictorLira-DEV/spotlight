@@ -5,18 +5,18 @@ interface Iprops {
 }
 
 export const SearchPageContext = React.createContext({
-  searchMovieValue: '',
-  searchMovieFunction: (a: any) => {},
+  searchMovieValue: "",
+  searchMovieFunction: (arg: string) => {},
 });
 
 export const SearchPageProvider = function (props: Iprops) {
-  const [searchMovie, setSearchMovie] = useState<any>();
+  const [searchMovie, setSearchMovie] = useState("");
 
-  const casaddd = function (inputValue: any) {
+  const casaddd = function (inputValue: string) {
     setSearchMovie(inputValue);
   };
 
-  const values: any = {
+  const values = {
     searchMovieFunction: casaddd,
     searchMovieValue: searchMovie,
   };

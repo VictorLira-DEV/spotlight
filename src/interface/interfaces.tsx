@@ -11,3 +11,12 @@ export interface IMovieDetails {
   poster_path: string;
   title: string;
 }
+
+export interface IMovieItem {
+  image: string;
+  title: string;
+  vote: number;
+  average: string;
+  id: string;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}

@@ -1,14 +1,11 @@
 import Axios from "axios";
 
-interface IAxios {
+interface Iconfig {
   url: string;
-  method: string;
-  headers: string;
-  body: string;
 }
 
 function useAxios() {
-  const sendRequest = async (config: any, apply: (a: any) => void) => {
+  const sendRequest = async (config: Iconfig, apply: (a: any) => void) => {
     const response = await Axios({
       url: config.url,
     });

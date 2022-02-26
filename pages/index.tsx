@@ -15,7 +15,7 @@ interface IHome {
 const Home = (props: IHome) => {
   const router = useRouter();
 
-  function showMovieDetail(e: any) {
+  function showMovieDetail(e: React.MouseEvent<HTMLButtonElement>) {
     const route = e.currentTarget
       .closest(".get-id")
       ?.getAttribute("data-identifier");
