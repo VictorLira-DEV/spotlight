@@ -154,7 +154,7 @@ function MovieOverview(props: IProps) {
                   : movieDetail!.original_language}
               </p>
               <h1>Production Company</h1>
-              <div className="productin__wrapper">
+              <div className="production__wrapper">
                 {movieDetail.production_companies &&
                   movieDetail.production_companies.map((logo) => (
                     <img

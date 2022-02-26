@@ -18,6 +18,11 @@ export const StyledHeader = styled.header`
       color: rgb(177, 177, 177);
     }
   }
+
+  @media screen and (max-width: ${({ theme }) => theme.tablet}) {
+    padding: 5px 20px;
+    flex-direction: column;
+  }
 `;
 
 export const StyledInput = styled.input`
@@ -29,4 +34,8 @@ export const StyledInput = styled.input`
   color: #fff;
   padding: 0.3rem 1.2rem;
   width: 200px;
+
+  @media screen and (max-width: ${({ theme }) => theme.tablet}) {
+    margin-bottom: 10px;
+  }
 `;

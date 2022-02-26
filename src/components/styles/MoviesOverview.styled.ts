@@ -21,7 +21,6 @@ export const StyledMovieDetailsContainer = styled.div`
   min-height: calc(100vh - 82px);
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
   background: rgba(0, 0, 0, 0.6);
   padding: 30px 60px 60px 60px;
   > h1 {
@@ -39,7 +38,24 @@ export const StyledMovieDetailsContainer = styled.div`
     border: 1px solid white;
     border-radius: 50%;
     margin-right: 40px;
+    min-width: 40px;
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+    > h1 {
+      position: static;
+      margin-bottom: 3rem;
+    }
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.tablet}) {
+    padding: 30px 20px 60px 20px;
+    > h1 {
+      left: 20px;
+    }
   }
 `;
 
@@ -57,6 +73,16 @@ export const StyledDetailInformations = styled.div`
     padding: 10px;
     /* border: 1px solid red; */
     width: 300px;
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.desktop}) {
+    & > div:last-of-type {
+      width: auto;
+    }
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.phone}) {
+    flex-direction: column;
   }
 `;
 
@@ -79,7 +105,6 @@ export const StyledMovieOverview = styled.div`
   }
 
   padding: 0 30px;
-  /* border: 1px solid red; */
   .genrer {
     display: inline-block;
     margin-right: 10px;
@@ -114,9 +139,10 @@ export const StyledMovieOverview = styled.div`
     }
   }
 
-  .productin__wrapper {
+  .production__wrapper {
     display: flex;
     flex-wrap: wrap;
+    max-height: 50px;
   }
 
   .production {
@@ -128,6 +154,26 @@ export const StyledMovieOverview = styled.div`
     &:not(:last-child) {
       margin-right: 10px;
       margin-bottom: 10px;
+    }
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.phone}) {
+    padding: 0;
+  }
+`;
+
+export const StyledMovieStatus = styled.div`
+  div {
+    margin-bottom: 15px;
+    p:first-of-type {
+      color: #ccc;
+      font-size: 1.2rem;
+      font-weight: 100;
+    }
+
+    span:first-of-type {
+      color: rgb(0, 209, 70);
+      font-size: 1.2rem;
     }
   }
 `;
@@ -177,6 +223,11 @@ export const StyledDetailPoster = styled.div`
     p {
       font-size: 1.2rem;
     }
+  }
+
+  @media screen and (max-width: 1000px) {
+    align-self: center;
+    padding: 5rem 0 3rem 0;
   }
 `;
 
@@ -229,21 +280,5 @@ export const StyledPopupVideoTrailer = styled.div`
     border-radius: 50%;
     top: 10%;
     color: red;
-  }
-`;
-
-export const StyledMovieStatus = styled.div`
-  div {
-    margin-bottom: 15px;
-    p:first-of-type {
-      color: #ccc;
-      font-size: 1.2rem;
-      font-weight: 100;
-    }
-
-    span:first-of-type {
-      color: rgb(0, 209, 70);
-      font-size: 1.2rem;
-    }
   }
 `;
