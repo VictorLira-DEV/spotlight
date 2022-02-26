@@ -1,14 +1,14 @@
-import { IMAGE_API } from "../services/api/movieApi";
-import { AiOutlineArrowLeft } from "react-icons/ai";
-import { currencyFormatting } from "../helper/functions";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import React, { useEffect, useState } from "react";
+import { IMAGE_API } from '../services/api/movieApi';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
+import { currencyFormatting } from '../helper/functions';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import React, { useEffect, useState } from 'react';
 // import { useRouter } from "next/router";
-import { RiCloseFill } from "react-icons/ri";
-import PopUp from "./ui/PopUp";
-import { BiPlay } from "react-icons/bi";
-import { CgArrowsExpandRight } from "react-icons/cg";
+import { RiCloseFill } from 'react-icons/ri';
+import PopUp from './ui/PopUp';
+import { BiPlay } from 'react-icons/bi';
+import { CgArrowsExpandRight } from 'react-icons/cg';
 import {
   StyledDetailInformations,
   StyledMovieDetailsContainer,
@@ -19,7 +19,7 @@ import {
   StyledVideoTrailer,
   StyledPopupVideoTrailer,
   StyledMovieStatus,
-} from "./styles/MoviesOverview.styled";
+} from './styles/MoviesOverview.styled';
 
 interface IMovieDetails {
   backdrop_path: string;
@@ -99,7 +99,7 @@ function MovieOverview(props: IProps) {
           src={
             movieDetail!.backdrop_path
               ? IMAGE_API + movieDetail!.backdrop_path
-              : "/background-default.jpg"
+              : '/background-default.jpg'
           }
         />
         <StyledMovieDetailsContainer
@@ -116,7 +116,7 @@ function MovieOverview(props: IProps) {
             <div className="overlay" />
             {posterHoverEffect && (
               <div className="content" onClick={() => displayPopUpHandler()}>
-                <CgArrowsExpandRight />
+                <CgArrowsExpandRight className="expand__icon" />
                 <p>Expand</p>
               </div>
             )}
@@ -142,21 +142,21 @@ function MovieOverview(props: IProps) {
               <p> {movieDetail!.release_date} </p>
               <h1>Genrer</h1>
               {movieDetail.genres &&
-                movieDetail.genres.map((genrer) => (
+                movieDetail.genres.map(genrer => (
                   <p key={genrer.id} className="genrer" id={genrer.id}>
                     {genrer.name}
                   </p>
                 ))}
               <h1>Language</h1>
               <p>
-                {movieDetail!.original_language === "en"
-                  ? "English"
+                {movieDetail!.original_language === 'en'
+                  ? 'English'
                   : movieDetail!.original_language}
               </p>
               <h1>Production Company</h1>
               <div className="production__wrapper">
                 {movieDetail.production_companies &&
-                  movieDetail.production_companies.map((logo) => (
+                  movieDetail.production_companies.map(logo => (
                     <img
                       alt="something"
                       key={logo.id}
@@ -164,7 +164,7 @@ function MovieOverview(props: IProps) {
                       src={
                         logo.logo_path
                           ? IMAGE_API + logo.logo_path
-                          : "/production-default.jpg"
+                          : '/production-default.jpg'
                       }
                     />
                   ))}

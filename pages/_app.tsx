@@ -5,7 +5,6 @@ import SearchPageProvider from '../src/context/searchMovieinput';
 import { ThemeProvider } from 'styled-components';
 
 function MyApp({ Component, pageProps }: AppProps) {
-
   const theme = {
     dark: {
       header: '#ebfbff',

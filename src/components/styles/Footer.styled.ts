@@ -23,6 +23,24 @@ const StyledFooter = styled.footer`
       }
     }
   }
+
+  @media screen and (max-width: ${({ theme }) => theme.tablet}) {
+    padding: 30px 20px;
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.phone}) {
+    ul {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin: 0;
+      li {
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
 `;
 
 export default StyledFooter;

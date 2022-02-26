@@ -39,6 +39,7 @@ export const StyledMovieDetailsContainer = styled.div`
     border-radius: 50%;
     margin-right: 40px;
     min-width: 40px;
+    min-height: 40px;
     cursor: pointer;
   }
 
@@ -55,6 +56,7 @@ export const StyledMovieDetailsContainer = styled.div`
     padding: 30px 20px 60px 20px;
     > h1 {
       left: 20px;
+      font-size: 2rem;
     }
   }
 `;
@@ -78,6 +80,12 @@ export const StyledDetailInformations = styled.div`
   @media screen and (max-width: ${({ theme }) => theme.desktop}) {
     & > div:last-of-type {
       width: auto;
+    }
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.tablet}) {
+    & > div:last-of-type {
+      padding: 10px 30px 0px 10px;
     }
   }
 
@@ -212,12 +220,13 @@ export const StyledDetailPoster = styled.div`
     align-items: center;
     justify-content: center;
 
-    svg {
+    > .expand__icon {
       color: white;
-      font-size: 1.5rem;
       border: none;
-      width: 40px;
       margin-right: 10px;
+      object-fit: contain;
+      min-width: 30px;
+      max-height: 30px;
     }
 
     p {
@@ -228,6 +237,13 @@ export const StyledDetailPoster = styled.div`
   @media screen and (max-width: 1000px) {
     align-self: center;
     padding: 5rem 0 3rem 0;
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.phone}) {
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 `;
 
@@ -257,6 +273,13 @@ export const StyledPopUp = styled.div`
       object-fit: cover;
     }
   }
+
+  @media screen and (max-width: ${({ theme }) => theme.tablet}) {
+    .popup {
+      width: 80vw;
+      height: auto;
+    }
+  }
 `;
 
 export const StyledVideoTrailer = styled.iframe`
@@ -268,9 +291,18 @@ export const StyledVideoTrailer = styled.iframe`
   transform: translate(-50%, -50%);
   z-index: 6;
   background: rgba(0.4);
+
+  @media screen and (max-width: ${({ theme }) => theme.tablet}) {
+    height: 40%;
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.phone}) {
+    height: 20%;
+  }
 `;
 
 export const StyledPopupVideoTrailer = styled.div`
+  position: relative;
   .close_trailer {
     position: fixed;
     color: white;
@@ -280,5 +312,17 @@ export const StyledPopupVideoTrailer = styled.div`
     border-radius: 50%;
     top: 10%;
     color: red;
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.tablet}) {
+    .close_trailer {
+      top: 25%;
+    }
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.phone}) {
+    .close_trailer {
+      top: 37%;
+    }
   }
 `;
