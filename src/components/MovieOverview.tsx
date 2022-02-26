@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
 import { RiCloseFill } from "react-icons/ri";
 import PopUp from "./ui/PopUp";
 import { BiPlay } from "react-icons/bi";
-import { CgArrowsExpandRight } from 'react-icons/cg'
+import { CgArrowsExpandRight } from "react-icons/cg";
 import {
   StyledDetailInformations,
   StyledMovieDetailsContainer,
@@ -112,13 +112,10 @@ function MovieOverview(props: IProps) {
             onMouseLeave={() => setPostHoverEffect(false)}
             onMouseEnter={() => setPostHoverEffect(true)}
           >
-            <img
-              src={IMAGE_API + movieDetail!.poster_path}
-              
-            />
+            <img src={IMAGE_API + movieDetail!.poster_path} />
             <div className="overlay" />
             {posterHoverEffect && (
-              <div className="content" onClick={() => displayPopUpHandler()}  >
+              <div className="content" onClick={() => displayPopUpHandler()}>
                 <CgArrowsExpandRight />
                 <p>Expand</p>
               </div>

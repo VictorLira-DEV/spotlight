@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
   padding: 5px 60px;
@@ -14,7 +14,7 @@ export const StyledHeader = styled.header`
     span {
       color: rgb(247, 211, 7);
     }
-    &:hover{
+    &:hover {
       color: rgb(177, 177, 177);
     }
   }

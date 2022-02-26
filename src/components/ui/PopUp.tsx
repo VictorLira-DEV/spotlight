@@ -1,5 +1,5 @@
-import { StyledBackdrop, StyledPopup } from "../styles/PopUp.styled";
-import React, { ReactNode } from "react";
+import { StyledBackdrop, StyledPopup } from '../styles/PopUp.styled';
+import React, { ReactNode } from 'react';
 
 interface IPopUp {
   onCloseModel: () => void;

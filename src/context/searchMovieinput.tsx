@@ -1,16 +1,16 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useState } from 'react';
 
 interface Iprops {
   children: ReactNode;
 }
 
 export const SearchPageContext = React.createContext({
-  searchMovieValue: "",
+  searchMovieValue: '',
   searchMovieFunction: (arg: string) => {},
 });
 
 export const SearchPageProvider = function (props: Iprops) {
-  const [searchMovie, setSearchMovie] = useState("");
+  const [searchMovie, setSearchMovie] = useState('');
 
   const casaddd = function (inputValue: string) {
     setSearchMovie(inputValue);

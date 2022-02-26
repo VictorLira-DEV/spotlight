@@ -1,12 +1,12 @@
-import { StyledHeader, StyledInput } from "../styles/Header.styled";
-import React, { useState } from "react";
-import { useContext } from "react";
-import { SearchPageContext } from "../../context/searchMovieinput";
-import { useRouter } from "next/router";
+import { StyledHeader, StyledInput } from '../styles/Header.styled';
+import React, { useState } from 'react';
+import { useContext } from 'react';
+import { SearchPageContext } from '../../context/searchMovieinput';
+import { useRouter } from 'next/router';
 
 function Header() {
   const { searchMovieFunction } = useContext(SearchPageContext);
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
   const router = useRouter();
 
   const searchMovie = function (e: React.FormEvent<HTMLInputElement>) {
@@ -16,16 +16,16 @@ function Header() {
 
   const onFormSubmit = async function (e: React.FormEvent) {
     e.preventDefault();
-    localStorage.setItem('search', searchValue)
-    const current = localStorage.getItem('search')!
-    router.replace("/search");
-    searchMovieFunction(current)
-    setSearchValue("")
+    localStorage.setItem('search', searchValue);
+    const current = localStorage.getItem('search')!;
+    router.replace('/search');
+    searchMovieFunction(current);
+    setSearchValue('');
   };
 
-  const goBackToHomePage = function(){
-    router.push("/");
-  }
+  const goBackToHomePage = function () {
+    router.push('/');
+  };
 
   return (
     <StyledHeader>
@@ -37,7 +37,7 @@ function Header() {
           type="search"
           placeholder="Search"
           value={searchValue}
-          onChange={(e) => searchMovie(e)}
+          onChange={e => searchMovie(e)}
         />
       </form>
     </StyledHeader>

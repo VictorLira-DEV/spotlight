@@ -1,10 +1,10 @@
-import Axios from "axios";
-import MovieOverview from "../../src/components/MovieOverview";
-import { FEATURED_API } from "../../src/services/api/movieApi";
-import Head from "next/head";
-import React, { useEffect } from "react";
-import { useRouter } from "next/router";
-import { GetStaticProps, GetStaticPaths, GetStaticPropsContext } from "next";
+import Axios from 'axios';
+import MovieOverview from '../../src/components/MovieOverview';
+import { FEATURED_API } from '../../src/services/api/movieApi';
+import Head from 'next/head';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { GetStaticProps, GetStaticPaths, GetStaticPropsContext } from 'next';
 
 interface IMovieOriginalResponse {
   vote_average: string;
@@ -38,7 +38,7 @@ function MovieDetails(props: IProps) {
   const router = useRouter();
 
   const backToRoute = function () {
-    router.replace("/");
+    router.replace('/');
   };
 
   return (
@@ -56,7 +56,7 @@ function MovieDetails(props: IProps) {
         trailer={
           movieDetail.videos.results.length > 0
             ? movieDetail.videos.results[0].key
-            : "/GgZpCtBXw"
+            : '/GgZpCtBXw'
         }
       />
     </React.Fragment>
@@ -70,7 +70,7 @@ export const getStaticProps: GetStaticProps = async (
 
   let response = await Axios({
     url: `https://api.themoviedb.org/3/movie/${movieId}?api_key=04c35731a5ee918f014970082a0088b1&append_to_response=videos`,
-    method: "GET",
+    method: 'GET',
   });
 
   return {
@@ -84,7 +84,7 @@ export const getStaticProps: GetStaticProps = async (
 export const getStaticPaths: GetStaticPaths = async () => {
   let response = await Axios({
     url: FEATURED_API,
-    method: "GET",
+    method: 'GET',
   });
 
   return {

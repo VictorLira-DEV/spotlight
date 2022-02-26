@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import Head from "next/head";
-import MovieOverview from "../../../src/components/MovieOverview";
-import {useEffect } from "react";
-import { useRouter } from "next/router";
-import {StyledSearchPage} from '../../../src/components/styles/StyledSearchPage.styled'
-import useAxios from '../../../src/hooks/useAxios'
+import React, { useState } from 'react';
+import Head from 'next/head';
+import MovieOverview from '../../../src/components/MovieOverview';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { StyledSearchPage } from '../../../src/components/styles/StyledSearchPage.styled';
+import useAxios from '../../../src/hooks/useAxios';
 
 interface IMovieDetails {
   backdrop_path: string;
@@ -26,19 +26,24 @@ function Search() {
     {} as IMovieDetails
   );
   const router = useRouter();
-  const { sendRequest } = useAxios()
+  const { sendRequest } = useAxios();
 
   const goBackToRoute = function () {
-    router.replace("/search");
+    router.replace('/search');
   };
 
   useEffect(() => {
-    const currentId = localStorage.getItem("movie-id");
-    const fetchData = function(response: any) {
-      const data = response.data
+    const currentId = localStorage.getItem('movie-id');
+    const fetchData = function (response: any) {
+      const data = response.data;
       setCurrentMovie(data);
-    }
-    sendRequest({ url: `https://api.themoviedb.org/3/movie/${currentId}?api_key=04c35731a5ee918f014970082a0088b1&append_to_response=videos`}, fetchData)
+    };
+    sendRequest(
+      {
+        url: `https://api.themoviedb.org/3/movie/${currentId}?api_key=04c35731a5ee918f014970082a0088b1&append_to_response=videos`,
+      },
+      fetchData
+    );
   }, []);
 
   return (
@@ -57,7 +62,7 @@ function Search() {
           trailer={
             currentMovie.videos.results.length > 0
               ? currentMovie.videos.results[0].key
-              : ""
+              : ''
           }
         />
       )}

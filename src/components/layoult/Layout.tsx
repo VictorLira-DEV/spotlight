@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
-import Header from "./Header";
-import { StyledLayout } from "../styles/Layout.styled";
-import Footer from "../layoult/Footer";
+import { ReactNode } from 'react';
+import Header from './Header';
+import { StyledLayout } from '../styles/Layout.styled';
+import Footer from '../layoult/Footer';
 
 interface Iprops {
   children: ReactNode;

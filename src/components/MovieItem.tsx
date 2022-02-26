@@ -4,13 +4,13 @@ import {
   StyledMovieInfo,
   StyledMovieOverview,
   StyledMovieButton,
-} from "./styles/MovieItem.styled";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import { IMovieItem } from '../interface/interfaces'
+} from './styles/MovieItem.styled';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { IMovieItem } from '../interface/interfaces';
 
-import Aos from "aos";
-import "aos/dist/aos.css";
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 function MovieItem(props: IMovieItem) {
   const router = useRouter();
@@ -27,13 +27,16 @@ function MovieItem(props: IMovieItem) {
       data-aos-easing="ease-in-sine"
       data-aos-duration="800"
     >
-      <StyledMovieImage src={props.image ? props.image : '/movie-default.jpg'} alt="something" />
+      <StyledMovieImage
+        src={props.image ? props.image : '/movie-default.jpg'}
+        alt="something"
+      />
       <StyledMovieInfo>
         <h3>{props.title}</h3>
         <span className={props.average}> {props.vote} </span>
       </StyledMovieInfo>
       <StyledMovieOverview className="movie-overview">
-        <StyledMovieButton onClick={(e) => props.onClick(e)}>
+        <StyledMovieButton onClick={e => props.onClick(e)}>
           Details
         </StyledMovieButton>
       </StyledMovieOverview>

@@ -1,4 +1,4 @@
-import StyledFooter from "../styles/Footer.styled";
+import StyledFooter from '../styles/Footer.styled';
 
 function Footer() {
   return (
@@ -8,7 +8,9 @@ function Footer() {
           <a href="">Developer &copy; Victor Lira</a>
         </li>
         <li>
-          <a href="">Credits <span>API</span> Documentaion</a>
+          <a href="">
+            Credits <span>API</span> Documentaion
+          </a>
         </li>
       </ul>
     </StyledFooter>

@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import StyledMovieWrapper from "./styles/MoviesWrapper.styled";
+import { ReactNode } from 'react';
+import StyledMovieWrapper from './styles/MoviesWrapper.styled';
 
 interface Iprops {
   children: ReactNode;

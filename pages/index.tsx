@@ -1,12 +1,12 @@
-import React from "react";
-import MoviesWrapper from "../src/components/MoviesWrapper";
-import Head from "next/head";
-import MovieItem from "../src/components/MovieItem";
-import axios from "axios";
-import { useRouter } from "next/router";
-import { FEATURED_API, IMAGE_API } from "../src/services/api/movieApi";
-import { getVoteAverage } from "../src/helper/functions";
-import { IMovieDetails } from "../src/interface/interfaces";
+import React from 'react';
+import MoviesWrapper from '../src/components/MoviesWrapper';
+import Head from 'next/head';
+import MovieItem from '../src/components/MovieItem';
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import { FEATURED_API, IMAGE_API } from '../src/services/api/movieApi';
+import { getVoteAverage } from '../src/helper/functions';
+import { IMovieDetails } from '../src/interface/interfaces';
 
 interface IHome {
   movies: IMovieDetails[];
@@ -17,9 +17,9 @@ const Home = (props: IHome) => {
 
   function showMovieDetail(e: React.MouseEvent<HTMLButtonElement>) {
     const route = e.currentTarget
-      .closest(".get-id")
-      ?.getAttribute("data-identifier");
-    router.replace("/" + route);
+      .closest('.get-id')
+      ?.getAttribute('data-identifier');
+    router.replace('/' + route);
   }
 
   return (
@@ -51,7 +51,7 @@ const Home = (props: IHome) => {
 export async function getStaticProps() {
   let response = await axios({
     url: FEATURED_API,
-    method: "GET",
+    method: 'GET',
   });
 
   let data = await response.data;
