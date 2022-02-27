@@ -110,7 +110,7 @@ function MovieOverview(props: IProps) {
         >
           <StyledDetailPoster
             onMouseLeave={() => setPostHoverEffect(false)}
-            onMouseOver={() => setPostHoverEffect(true)}
+            onMouseDown={() => setPostHoverEffect(true)}
           >
             <img src={IMAGE_API + movieDetail!.poster_path} />
             <div className="overlay" />
