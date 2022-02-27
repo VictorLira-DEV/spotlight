@@ -9,6 +9,7 @@ import Head from 'next/head';
 import { getVoteAverage } from '../../src/helper/functions';
 import useAxios from '../../src/hooks/useAxios';
 import LoadingSpinner from '../../src/components/ui/LoadingSpinner';
+import NoMovieFound from '../../src/components/ui/NoMovieFound'
 
 interface IsearchedMovie {
   image: string;
@@ -58,6 +59,7 @@ function Search() {
             content="take a look at the most popular movies nowadays"
           />
         </Head>
+        {!isLoading && allData.length <= 0 && <NoMovieFound/>}
         {isLoading && <LoadingSpinner />}
         {!isLoading &&
           allData.map((movie: IsearchedMovie) => {

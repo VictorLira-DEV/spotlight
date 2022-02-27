@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledMovieWrapper = styled.main`
   padding: 30px 60px;
-  min-height: 100vh;
+  min-height: calc(100vh - 82px);
   background: rgb(15, 15, 15);
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
