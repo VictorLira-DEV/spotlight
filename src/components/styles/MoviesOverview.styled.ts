@@ -19,19 +19,27 @@ export const StyledMovieBanner = styled.div`
 export const StyledMovieDetailsContainer = styled.div`
   min-width: 100vw;
   min-height: calc(100vh - 82px);
-  display: flex;
-  justify-content: space-between;
   background: rgba(0, 0, 0, 0.6);
-  padding: 30px 60px 60px 60px;
-  > h1 {
-    font-size: 2.5rem;
-    position: absolute;
-    left: 60px;
-    top: 30px;
-    font-weight: 100;
+  padding: 60px 60px 60px 60px;
+  display: grid;
+  grid-template-rows: 100px 500px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    'title title title'
+    'poster overview overview';
+
+  .main__title {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    grid-area: title;
     color: white;
+    margin-top: -20px;
+
+    h1 {
+      font-weight: 100;
+      font-size: 2.5rem;
+      margin-top: -10px;
+    }
   }
 
   svg {
@@ -43,25 +51,34 @@ export const StyledMovieDetailsContainer = styled.div`
     cursor: pointer;
   }
 
-  @media screen and (max-width: 1000px) {
-    flex-direction: column;
-    align-items: center;
-    > h1 {
-      position: static;
+  @media screen and (max-width: 1084px) {
+    padding: 0 60px 60px 60px;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'title'
+      'poster'
+      'overview';
+
+    .main__title {
       margin-bottom: 3rem;
+      margin-top: 3rem;
     }
   }
 
   @media screen and (max-width: ${({ theme }) => theme.tablet}) {
-    padding: 30px 20px 60px 20px;
-    > h1 {
-      left: 20px;
-      font-size: 2rem;
+    padding: 0px 20px 60px 20px;
+    .main__title {
+      h1 {
+        font-size: 1.6rem;
+        margin-top: 0px;
+      }
     }
   }
 `;
 
 export const StyledDetailInformations = styled.div`
+  grid-area: overview;
   flex: 1;
   min-height: 500px;
   align-self: flex-end;
@@ -73,20 +90,17 @@ export const StyledDetailInformations = styled.div`
 
   & > div:last-of-type {
     padding: 10px;
-    /* border: 1px solid red; */
     width: 300px;
   }
 
-  @media screen and (max-width: ${({ theme }) => theme.desktop}) {
+  @media screen and (max-width: 1335px) {
     & > div:last-of-type {
       width: auto;
     }
   }
 
   @media screen and (max-width: ${({ theme }) => theme.tablet}) {
-    & > div:last-of-type {
-      padding: 10px 30px 0px 10px;
-    }
+    margin-top: 3rem;
   }
 
   @media screen and (max-width: ${({ theme }) => theme.phone}) {
@@ -95,6 +109,7 @@ export const StyledDetailInformations = styled.div`
 `;
 
 export const StyledMovieOverview = styled.div`
+  padding: 0 30px;
   .movie_play {
     display: flex;
     align-items: center;
@@ -112,7 +127,6 @@ export const StyledMovieOverview = styled.div`
     }
   }
 
-  padding: 0 30px;
   .genrer {
     display: inline-block;
     margin-right: 10px;
@@ -122,11 +136,13 @@ export const StyledMovieOverview = styled.div`
   flex: 1;
   h1 {
     font-weight: 100;
-    color: #ccc;
+    color: rgb(201, 201, 201);
+    border-bottom: 1px solid rgba(204, 204, 204, 0.2);
   }
 
   p {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 100;
   }
 
   div {
@@ -165,6 +181,9 @@ export const StyledMovieOverview = styled.div`
     }
   }
 
+  @media screen and (max-width: ${({ theme }) => theme.tablet}) {
+    padding: 0 30px 0 0;
+  }
   @media screen and (max-width: ${({ theme }) => theme.phone}) {
     padding: 0;
   }
@@ -187,9 +206,12 @@ export const StyledMovieStatus = styled.div`
 `;
 
 export const StyledDetailPoster = styled.div`
+  grid-area: poster;
   align-self: flex-end;
   position: relative;
   transition: 0.3s;
+  width: 350px;
+  height: 500px;
   cursor: pointer;
   img {
     width: 350px;
@@ -234,13 +256,14 @@ export const StyledDetailPoster = styled.div`
     }
   }
 
-  @media screen and (max-width: 1000px) {
-    align-self: center;
-    padding: 5rem 0 3rem 0;
+  @media screen and (max-width: 1084px) {
+    justify-self: center;
   }
 
   @media screen and (max-width: ${({ theme }) => theme.phone}) {
-    img {
+    width: 100%;
+    height: auto;
+    & > img {
       width: 100%;
       height: auto;
     }
@@ -293,11 +316,8 @@ export const StyledVideoTrailer = styled.iframe`
   background: rgba(0.4);
 
   @media screen and (max-width: ${({ theme }) => theme.tablet}) {
-    height: 40%;
-  }
-
-  @media screen and (max-width: ${({ theme }) => theme.phone}) {
-    height: 20%;
+    height: 60%;
+    width: 95vw;
   }
 `;
 
@@ -316,13 +336,9 @@ export const StyledPopupVideoTrailer = styled.div`
 
   @media screen and (max-width: ${({ theme }) => theme.tablet}) {
     .close_trailer {
-      top: 25%;
-    }
-  }
-
-  @media screen and (max-width: ${({ theme }) => theme.phone}) {
-    .close_trailer {
-      top: 37%;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 15%;
     }
   }
 `;

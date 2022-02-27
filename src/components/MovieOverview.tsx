@@ -110,6 +110,7 @@ function MovieOverview(props: IProps) {
         >
           <StyledDetailPoster
             onMouseLeave={() => setPostHoverEffect(false)}
+            onMouseEnter={() => setPostHoverEffect(true)}
             onMouseDown={() => setPostHoverEffect(true)}
           >
             <img src={IMAGE_API + movieDetail!.poster_path} />
@@ -121,10 +122,10 @@ function MovieOverview(props: IProps) {
               </div>
             )}
           </StyledDetailPoster>
-          <h1>
+          <div className='main__title'>
             <AiOutlineArrowLeft onClick={() => props.backToRoute()} />
-            {movieDetail!.title}
-          </h1>
+            <h1>{movieDetail!.title}</h1>
+          </div>
           <StyledDetailInformations>
             <StyledMovieOverview>
               <div
