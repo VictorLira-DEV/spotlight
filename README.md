@@ -1,34 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## **<h2 align="center"> 🎥 Spotlight </h2>**
 
-First, run the development server:
+<h2 align="center"> 
+        😎  Personal Project ✔️
+</h2>
+<br>
+<p align="center">
+  <a href="#computer-demonstration-of-the-application">Demonstration of the application</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#star-features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-technologies-used">Technologies used</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#information_source-application-installation">Application installation</a>
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+# :computer: Demonstration of the application
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p align="center">
+  <img src="https://ik.imagekit.io/mcvhbcq4zu/web_gABemZpGB.gif?ik-sdk-version=javascript-1.4.3&updatedAt=1648729424677" width="1400px"/>
+</p>
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+<br>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+# 👀 Important
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+:key: <p> take a look --> https://spotlight-iota.vercel.app/ </p>
+<h3 align="center"> 
+	Application status: Developed ✔️
+</h3>
+<br>
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+ ## 📓 About
+This app shows the most popular movie released currently, and it shows a lot of details of each movie dynamically, you can search any movie because it consumes an <a href="https://www.themoviedb.org/documentation/api" target="_blank" >API</a>  that provides all that data and details of each movie, I used Next js to work with server-side generation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## :star: Features
+- [x] Search bar
+- [x] Movie details
+- [x] AOS animation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+ ## :rocket: Technologies used:
+<p align="center">
+  <img src="https://github.com/devicons/devicon/blob/master/icons/nextjs/nextjs-original.svg" alt="ts" width="70" height="70"/>
+	<img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" alt="ts" width="70" height="70"/>
+	<img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" alt="react" width="70" height="70"/>
+	<img src="https://www.styled-components.com/atom.png" alt="css3" width="70" height="70"/>
+	<img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-plain-wordmark.svg" alt="html5"  width="70" height="70"/>
+	<img src="https://github.com/devicons/devicon/blob/master/icons/webpack/webpack-original.svg" alt="html5"  width="70" height="70"/>
+</p>
 
-## Deploy on Vercel
+<br>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## :information_source: Application installation
+- `https://github.com/VictorLira-DEV/spotlight.git` to clone the repository
+# 🎲 Run application
+To run the application on the web, follow the instructions :
+- `make sure you are inside the project's folder on VScode`
+- `open up a terminal`
+- run `yarn install` to install the client dependencies of the project
+- then run `yarn dev` to run the application, will open at the address `localhost:3000`
+<br>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<br>
+
