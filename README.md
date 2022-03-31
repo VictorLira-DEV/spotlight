@@ -30,7 +30,7 @@
 
 
  ## 📓 About
-This app shows the most popular movie released currently, and it shows a lot of details of each movie dynamically, you can search any movie because it consumes an API that provides all that data and details of each movie, I used Next js to work with server-side generation
+This app shows the most popular movie released currently, and it shows a lot of details of each movie dynamically, you can search any movie because it consumes an <a href="https://www.themoviedb.org/documentation/api" target="_blank" >API</a>  that provides all that data and details of each movie, I used Next js to work with server-side generation
 
 ## :star: Features
 - [x] Search bar
