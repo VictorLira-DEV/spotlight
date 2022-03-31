@@ -122,7 +122,7 @@ function MovieOverview(props: IProps) {
               </div>
             )}
           </StyledDetailPoster>
-          <div className='main__title'>
+          <div className="main__title">
             <AiOutlineArrowLeft onClick={() => props.backToRoute()} />
             <h1>{movieDetail!.title}</h1>
           </div>
@@ -165,7 +165,7 @@ function MovieOverview(props: IProps) {
                       src={
                         logo.logo_path
                           ? IMAGE_API + logo.logo_path
-                          : '/production-default.jpg'
+                          : '/default-production.jpg'
                       }
                     />
                   ))}
