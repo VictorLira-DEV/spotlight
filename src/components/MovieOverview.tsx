@@ -157,18 +157,17 @@ function MovieOverview(props: IProps) {
               <h1>Production Company</h1>
               <div className="production__wrapper">
                 {movieDetail.production_companies &&
-                  movieDetail.production_companies.map(logo => (
-                    <img
-                      alt="something"
-                      key={logo.id}
-                      className="production"
-                      src={
-                        logo.logo_path
-                          ? IMAGE_API + logo.logo_path
-                          : '/default-production.jpg'
-                      }
-                    />
-                  ))}
+                  movieDetail.production_companies.map(
+                    logo =>
+                      logo.logo_path && (
+                        <img
+                          alt="something"
+                          key={logo.id}
+                          className="production"
+                          src={IMAGE_API + logo.logo_path}
+                        />
+                      )
+                  )}
               </div>
             </StyledMovieOverview>
             <StyledMovieStatus>
