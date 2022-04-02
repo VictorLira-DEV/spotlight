@@ -30,7 +30,7 @@ export const StyledInput = styled.input`
   font-family: inherit;
   font-size: 1.2rem;
   border-radius: 50px;
-  border: 2px solid rgb(156, 156, 156);
+  border: 2px solid rgba(247, 211, 7, 0.7);
   color: #fff;
   padding: 0.3rem 1.2rem;
   width: 200px;
