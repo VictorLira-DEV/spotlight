@@ -12,12 +12,12 @@ export const SearchPageContext = React.createContext({
 export const SearchPageProvider = function (props: Iprops) {
   const [searchMovie, setSearchMovie] = useState('');
 
-  const casaddd = function (inputValue: string) {
+  const seachMovie = function (inputValue: string) {
     setSearchMovie(inputValue);
   };
 
   const values = {
-    searchMovieFunction: casaddd,
+    searchMovieFunction: seachMovie,
     searchMovieValue: searchMovie,
   };
 
