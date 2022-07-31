@@ -77,7 +77,7 @@ export const getStaticProps: GetStaticProps = async (
     props: {
       movieDetail: response.data,
     },
-    revalidate: 60,
+    revalidate: 50,
   };
 };
 
